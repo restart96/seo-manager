@@ -1,0 +1,13 @@
+/**
+ * @author SJ
+ * @date   2019.12.03
+ */
+
+@import '~vuetify/dist/vuetify.min.css';
+
+[v-cloak] {visibility:hidden;}
+
+.v-text-field__details {min-height:1rem;}
+.v-textarea textarea {padding-top:4px;}
+.v-select .v-chip {margin:2px 4px 6px;}
+.static-text {pointer-events:none;}
