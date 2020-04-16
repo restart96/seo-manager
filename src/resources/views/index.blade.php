@@ -10,6 +10,7 @@
     <meta name="apple-mobile-web-app-title" content="{{ config('app.name') }}"/>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css"/>
     <link rel="stylesheet" type="text/css" href="/assets/seo-manager/css/seo-manager.css"/> 
     <script>
         let APP_URL = "{{ route('seo-manager.index') }}"
