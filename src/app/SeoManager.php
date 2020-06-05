@@ -13,6 +13,8 @@ class SeoManager
 {
     private $route = null;
 
+    protected static $data = null;
+
     /**
      * 데이터를 반환합니다.
      * 
@@ -20,6 +22,24 @@ class SeoManager
      * @return array|string
      */
     public function getData($property = null)
+    {
+        if (static::$data === null) {
+            $this->setAllData();
+        }
+
+        if ($property) {
+            return isset(static::$data[$property]) ? static::$data[$property] : null;
+        }
+
+        return static::$data;
+    }
+
+    /**
+     * 모든 메타데이터를 조회합니다.
+     * 
+     * @return array
+     */
+    private function setAllData()
     {
         $route = Route::current();
         $params = $route->parameters;
@@ -77,11 +97,7 @@ class SeoManager
             }
         }
 
-        if ($property) {
-            return isset($data[$property]) ? $data[$property] : null;
-        }
-
-        return $data;
+        static::$data = $data;
     }
 
     /**
