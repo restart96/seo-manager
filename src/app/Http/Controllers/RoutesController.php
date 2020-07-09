@@ -285,7 +285,7 @@ class RoutesController extends Controller
         
         if (is_array($mapping)) {
             foreach ($mapping as $param => $data) {
-                if (!$data['model']) {
+                if (!$data['model'] || !$data['find_by']) {
                     return null;
                 }
                 $model = (new $data['model'])->first();
@@ -293,7 +293,7 @@ class RoutesController extends Controller
                     return null;
                 }
 
-                $uri = preg_replace('/{'.$param.'}/', $model->getKey(), $uri);
+                $uri = preg_replace('/{'.$param.'}/', $model->{$data['find_by']}, $uri);
             }
         }
 
