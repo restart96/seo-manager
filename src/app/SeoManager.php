@@ -179,9 +179,9 @@ class SeoManager
             if (gettype($val) === 'object') {
                 $val = $val->only($mapped['columns']);
             } else {
-                $val = (new $mapped['model'])->where($mapped['find_by'], $val)
-                                             ->first()
-                                             ->only($mapped['columns']);
+                $model = (new $mapped['model'])->where($mapped['find_by'], $val)
+                                               ->first();
+                $val = $model ? $model->only($mapped['columns']) : '';
             }
         }
         unset($val);
