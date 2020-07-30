@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Restart\\SeoManager\\": "src"
+            "Restart\\SeoManager\\App\\": "src/app/"
         },
         "files":[
             "src/app/Helpers/metaTag.php"
